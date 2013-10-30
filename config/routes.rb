@@ -1,7 +1,9 @@
 CraigslistJr::Application.routes.draw do
-  root to: 'categories#index'
+  root to: 'users#index'
   resources :categories, only: [:index, :create, :new, :show]
-  resources :posts
+  resources :posts, only: [:index, :create, :show]
+  resources :users, only: [:create, :new, :show]
+  resources :sessions, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
