@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  # use OmniAuth::Builder do
-  #   provider :dbc, ENV['OAUTH_CLIENT_ID'], ENV['OAUTH_CLIENT_SECRET']
-  # end
+  use OmniAuth::Builder do
+    provider :dbc, ENV['OAUTH_CLIENT_ID'], ENV['OAUTH_CLIENT_SECRET']
+  end
 
   def create
     @user = User.find_by_username(params[:user][:username])
