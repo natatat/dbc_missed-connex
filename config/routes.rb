@@ -3,7 +3,9 @@ CraigslistJr::Application.routes.draw do
   resources :categories, only: [:index, :create, :new, :show]
   resources :posts, only: [:index, :create, :show]
   resources :users, only: [:create, :new, :show]
-  resources :sessions, only: [:create, :destroy]
+
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signout' => 'sessions#destroy', :as => :signout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
