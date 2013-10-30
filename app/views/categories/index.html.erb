@@ -1,0 +1,11 @@
+<h1>DBC Missed Connections</h1>
+
+<%= form_for @category do |f| %>
+  create a category:
+  <%= f.text_field :name, placeholder: "name" %>
+  <%= f.submit "yes" %>
+<% end %>
+
+<% if @categories %>
+  <%= render 'categories/list' %>
+<% end %>

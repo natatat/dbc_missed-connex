@@ -1,0 +1,16 @@
+<h1><%= @category.name %></h1>
+
+<%= form_for @post do |f| %>
+  <%= f.text_field :title, placeholder: "title" %>
+  <%= f.text_field :description, placeholder: "description" %>
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <%= f.submit "post" %>
+<% end %>
+
+<br/>
+
+<% @category.posts.each do |post| %>
+  <%= link_to post.title, post_path(post.id) %><br/><br/>
+<% end %>
+
+<%= link_to "home", root_path %>
