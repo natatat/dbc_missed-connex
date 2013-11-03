@@ -2,7 +2,7 @@
 
 <% if session[:current_user_id] %>
 
-  <p>hey <%= @user.username %></p>
+  <p>hey <%= @user.name %></p>
   <%= button_to "log out", session_path(@user.id), method: :delete %>
 
 <% else %>
@@ -10,7 +10,7 @@
   <%= link_to "sign up", new_user_path %><br/><br/>
 
   <%= form_for @user, url: sessions_path do |f| %>
-    <%= f.text_field :username, placeholder: "username" %>
+    <%= f.text_field :email, placeholder: "email" %>
     <%= f.password_field :password, placeholder: "password" %>
     <%= f.submit "log in" %>
   <% end %>

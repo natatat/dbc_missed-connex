@@ -4,7 +4,9 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 gem 'jquery-rails'
-gem 'omniauth-dbc'
+gem 'httparty'
+gem 'bcrypt-ruby'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails'

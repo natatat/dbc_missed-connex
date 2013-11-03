@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params[:user])
+    @user = User.new(params[:user])
     if @user.save
       redirect_to user_path(@user.id)
     else
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @categories = Category.all
     @user = User.find(params[:id])
   end
 end

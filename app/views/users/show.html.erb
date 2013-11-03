@@ -1,3 +1,7 @@
-hey <%= @user.username %>!
+hey <%= @user.name %>!
 
-<%= link_to "home", root_path %>
+<% if @categories %>
+  <%= render 'categories/list' %>
+<% end %>
+
+<%= button_to "log out", session_path(@user.id), method: :delete %>

@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
 
-  def index
-    @post = Post.new
-  end
-
   def create
-    @post = Post.create(params[:post])
+    @category = Category.find(params[:category_id])
+    @post = @category.posts.new(params[:post])
     if @post.save
-      redirect_to category_path(@post.category_id)
+      redirect_to category_path(@category.id)
+    else
+      flash[:notice] = "your post was not saved"
+      redirect_to category_path(@category.id)
     end
   end
 
